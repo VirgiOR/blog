@@ -14,8 +14,10 @@ class Post extends Model
     {
         return Attribute::make(
             set: function($value){
-                return strtolower($value);
+                return strtolower($value); //filtro adicional que controle cómo se guardan los datos
 
+            }, get: function($value){
+                return ucfirst($value); //filtro adicional que controle cómo se muestran los datos
             }
         );
     }

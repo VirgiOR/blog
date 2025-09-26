@@ -18,11 +18,11 @@ Route::get('/posts/{post}', [PostController::class,'show']);
 
 Route::get('prueba', function() {
     //crear un post
-    $post = new Post;
+    /*$post = new Post;
     $post->title = 'Mi primer post 3';
     $post->categoria = 'Categoria de prueba 3';
     $post->content = 'Contenido de prueba para mi primer post 3';
-    $post->save(); 
+    $post->save(); */
       
 
     //Actualizar registro
@@ -33,6 +33,8 @@ Route::get('prueba', function() {
     return $post;*/
 
     //llamar varios registros y listarlos
+
+    $post = Post::find(3);
     /*$posts = Post::orderBy('categoria','asc')
                   ->select('id','title','categoria')
                   ->take(2)
