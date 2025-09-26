@@ -1,13 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel 12</title>
-</head>
-<body>
-    <h1>Bienvenida a  la pagina de inicio</h1>
+@extends('layouts.app')
+
+
+@section('title','Laravel 12')
+
+@push('css')
+<style>
+   body{
+    background-color: #f3f3f3
+   }
+
+   
+
+</style>
     
-</body>
-</html>
+@endpush
+
+@push('css')
+<style>
+    body{
+        color: red
+    }
+</style>
+    
+@endpush
+
+
+    
+
+
+@section('content')
+
+
+    
+    <div class= "max-w-4xl mx-auto px-4 ">
+       <!-- <h1>Bienvenida a la pagina de inicio</h1> -->
+        <x-alert2 type="info" class="mb-4">
+            <x-slot name="title">
+                Título de la alerta
+            </x-slot>
+            contenido de la  alerta
+        </x-alert2>
+
+        <p>hola mundo</p>
+
+    </div>
+  
+@endsection
+
+
