@@ -8,13 +8,32 @@ use App\Http\Controllers\PostController;
 
 use App\Models\Post;
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class) ;
 
-Route::get('/posts', [PostController::class,'index']);
+/*Route::get('/posts', [PostController::class,'index'])->name('posts.index');
 
-Route::get('/posts/create', [PostController::class,'create']);
+Route::get('/posts/create', [PostController::class,'create'])->name('posts.create');
 
-Route::get('/posts/{post}', [PostController::class,'show']);
+Route::post('/posts', [PostController::class,'store']) ->name('posts.store');
+
+Route::get('/posts/{post}', [PostController::class,'show'])->name('posts.show');
+
+Route::get('/posts/{post}/edit', [PostController::class,'edit']
+)->name('posts.edit');
+
+Route::put('posts/{post}', [PostController::class,'update']
+)->name('posts.update'); 
+
+Route::delete('/posts/{post}', [PostController::class,'destroy']
+)->name('posts.destroy');*/
+
+Route::resource('posts', PostController::class)
+
+->names('posts');
+
+
+    
+
 
 Route::get('prueba', function() {
     //crear un post
@@ -32,9 +51,12 @@ Route::get('prueba', function() {
     $post->save();
     return $post;*/
 
-    //llamar varios registros y listarlos
+    
 
-    $post = Post::find(3);
+    $post = Post::find(1);//Recuperar un registro por su llave primaria
+
+
+    //llamar varios registros y listarlos
     /*$posts = Post::orderBy('categoria','asc')
                   ->select('id','title','categoria')
                   ->take(2)
@@ -47,9 +69,10 @@ Route::get('prueba', function() {
 
 
 
+     dd($post->is_active);
 
-
-    return $post; 
+    //return $post->published_at->is_active; //created_at es un campo timestamp que se crea automáticamente en la base de datos
+    // (siempre y cuando la tabla tenga los campos timestamps() en la migración)
 
 
 

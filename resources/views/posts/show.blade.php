@@ -7,10 +7,22 @@
     <title>Laravel 12|Mostrar Posts</title>
 </head>
 <body>
-    <h1>Aquí se mostrarán los posts   {{$post}}</h1>
-    @if(true)
-        <p>contenido de prueba</p>
-    @endif
+
+    <a href="{{route('posts.index')}}">Volver a los posts</a>
+    <h1>Título:  {{$post->title}}</h1>
+    <p><b>Categoria:</b> {{$post->categoria}}</p>
+    <p><b>Contenido:</b> {{$post->content}}</p>
+
+
+    <a href="{{route('posts.edit',$post)}}">Editar Post</a>
+
+    
+    <form action="{{route('posts.destroy',$post)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Eliminar Post</button>
+
+
     
 </body>
 </html>

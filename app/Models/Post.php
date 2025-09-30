@@ -8,7 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {   use HasFactory;
+
+    protected $fillable = ['title','slug','categoria','content'];
+
+    
     //protected $table = 'posts';
+    protected function casts(): array
+    {
+        return [
+            'published_at' => 'datetime',
+            'is_active' => 'boolean',
+        ];
+    }
+    
 
     protected function title(): Attribute
     {
@@ -21,4 +33,9 @@ class Post extends Model
             }
         );
     }
+
+    /*public function getRouteKeyName()
+    {
+        return 'slug'; //para que laravel busque por slug en vez de id
+    }*/
 }

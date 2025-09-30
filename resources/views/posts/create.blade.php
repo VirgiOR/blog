@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel 12 |Create</title>
-</head>
-<body>
+<x-app-layouts>
+
     <h1>Aquí se mostrará el formulario para crear un post</h1>
-</body>
-</html>
+
+    <form action="/posts" method="POST">
+
+        @csrf
+        <label for="title">Título</label>
+        <input type="text" name="title" id="title">
+        <br><br>
+
+        <label for="slug">Slug</label>
+        <input type="text" name="slug" id="slug">
+        <br><br>
+
+        <label for="categoria">Categoría</label>
+        <input type="text" name="categoria" id="categoria">
+        <br><br>
+
+        <label for="content">Contenido</label>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <br><br>
+
+        <button type="submit">Crear Post</button>
+
+
+
+    </form>
+</x-app-layouts>
